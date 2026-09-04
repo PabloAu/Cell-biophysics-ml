@@ -96,17 +96,23 @@ def _reflect_step(start: np.ndarray, delta: np.ndarray, radius: float) -> np.nda
 def _switching_states(
     n_frames: int, probability: float, rng: np.random.Generator
 ) -> np.ndarray:
-    states = np.zeros(n_frames, dtype=np.int8)
-    states[0] = int(rng.integers(0, 2))
-    for index in range(1, n_frames):
-        switch = rng.random() < probability
-        states[index] = 1 - states[index - 1] if switch else states[index - 1]
-    # A switching-class sample should contain evidence of both states. When a
-    # rare-event draw contains no transition, insert one at a random interior
-    # frame and preserve stochastic segment lengths.
-    if np.all(states == states[0]) and n_frames >= 4:
-        change = int(rng.integers(1, n_frames - 1))
-        states[change:] = 1 - states[0]
+    # The switching class is conditioned on at least one realized transition;
+    # otherwise its label would be observationally identical to a single-state
+    # trajectory by construction. Rejection sampling preserves the geometric
+    # segment-length distribution under that condition.
+    for _ in range(128):
+        states = np.zeros(n_frames, dtype=np.int8)
+        states[0] = int(rng.integers(0, 2))
+        for index in range(1, n_frames):
+            switch = rng.random() < probability
+            states[index] = 1 - states[index - 1] if switch else states[index - 1]
+        if np.any(states != states[0]):
+            return states
+
+    # Degenerate probabilities used in unit tests or interactive exploration
+    # should still return a valid switching-class sample without hanging.
+    change = int(rng.integers(1, n_frames - 1))
+    states[change:] = 1 - states[0]
     return states
 
 

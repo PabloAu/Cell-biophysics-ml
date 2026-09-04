@@ -40,7 +40,9 @@ complete observation model.
 - Directed: Brownian diffusion plus constant drift vector.
 - Confined: Brownian diffusion inside a reflecting circle.
 - Subdiffusive: isotropic fractional Brownian motion with `alpha = 2H < 1`.
-- Switching: a Markov switch between Brownian and directed dynamics.
+- Switching: a Markov switch between Brownian and directed dynamics. Samples
+  labeled `switching` are conditioned on at least one realized transition so
+  the ground-truth class does not silently contain single-state paths.
 
 All physical quantities use micrometres and seconds.
 

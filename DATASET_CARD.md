@@ -73,7 +73,8 @@ The observation model currently uses Gaussian localization uncertainty and
 missing-at-random detections. It does not yet generate photons, point-spread
 functions, tracking/linking errors, depth-dependent localization uncertainty,
 or particle-particle interactions. Subdiffusion is represented by fractional
-Brownian motion. These limitations are central benchmark extension targets.
+Brownian motion. Switching samples are conditioned on at least one transition.
+These limitations are central benchmark extension targets.
 
 ## Licensing and provenance
 

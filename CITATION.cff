@@ -6,7 +6,7 @@ authors:
   - family-names: "Gómez García"
     given-names: "Pablo Aurelio"
     orcid: "https://orcid.org/0000-0002-4971-4229"
-version: 0.1.0
+version: 0.1.1
 date-released: 2026-09-04
 repository-code: "https://github.com/PabloAu/Cell-biophysics-ml"
 license: Apache-2.0

@@ -102,6 +102,6 @@ with `hf auth login`, review the printed repository/file plan, then add
 
 ## Status
 
-Version `0.1.0` is the benchmark foundation and reproducible vertical slice.
+Version `0.1.1` is the benchmark foundation and reproducible vertical slice.
 The published scientific result should be an identifiability map with
 uncertainty, not an isolated headline accuracy.

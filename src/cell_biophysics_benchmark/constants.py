@@ -1,6 +1,6 @@
 """Shared labels and version identifiers."""
 
-SIMULATOR_VERSION = "0.1.0"
+SIMULATOR_VERSION = "0.1.1"
 
 STATE_LABELS = (
     "brownian",
