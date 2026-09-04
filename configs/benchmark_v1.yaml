@@ -1,0 +1,33 @@
+dataset:
+  name: cell-biophysics-trajectories-v1
+  seed: 20260904
+  states: [brownian, directed, confined, subdiffusive, switching]
+  samples_per_state:
+    train: 6000
+    validation: 1000
+    test_matched: 1500
+    test_stress: 1500
+  output: data/generated/cell-biophysics-trajectories-v1.jsonl.gz
+
+physical:
+  diffusion_um2_s: [0.005, 5.0]
+  velocity_um_s: [0.02, 5.0]
+  confinement_radius_um: [0.05, 2.0]
+  anomalous_alpha: [0.25, 0.90]
+  switch_probability_per_frame: [0.002, 0.08]
+
+acquisition:
+  matched:
+    frame_interval_s: [0.005, 0.20]
+    exposure_fraction: [0.05, 0.80]
+    localization_sigma_um: [0.002, 0.08]
+    missing_probability: [0.0, 0.20]
+    trajectory_length: [80, 500]
+    oversample: 8
+  stress:
+    frame_interval_s: [0.005, 0.25]
+    exposure_fraction: [0.80, 1.0]
+    localization_sigma_um: [0.08, 0.20]
+    missing_probability: [0.20, 0.50]
+    trajectory_length: [30, 79]
+    oversample: 8

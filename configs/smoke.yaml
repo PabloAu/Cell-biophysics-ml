@@ -1,0 +1,33 @@
+dataset:
+  name: smoke
+  seed: 20260904
+  states: [brownian, directed, confined, subdiffusive, switching]
+  samples_per_state:
+    train: 20
+    validation: 5
+    test_matched: 5
+    test_stress: 5
+  output: data/generated/smoke.jsonl.gz
+
+physical:
+  diffusion_um2_s: [0.02, 2.0]
+  velocity_um_s: [0.05, 2.0]
+  confinement_radius_um: [0.1, 1.0]
+  anomalous_alpha: [0.35, 0.85]
+  switch_probability_per_frame: [0.005, 0.05]
+
+acquisition:
+  matched:
+    frame_interval_s: [0.02, 0.10]
+    exposure_fraction: [0.2, 0.8]
+    localization_sigma_um: [0.005, 0.06]
+    missing_probability: [0.0, 0.15]
+    trajectory_length: [80, 240]
+    oversample: 8
+  stress:
+    frame_interval_s: [0.02, 0.15]
+    exposure_fraction: [0.75, 1.0]
+    localization_sigma_um: [0.07, 0.15]
+    missing_probability: [0.18, 0.40]
+    trajectory_length: [30, 79]
+    oversample: 8

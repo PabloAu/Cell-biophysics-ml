@@ -1,0 +1,10 @@
+model:
+  kind: logistic_regression
+  measurement_aware: true
+  regularization_c: 1.0
+  max_iter: 3000
+  seed: 20260904
+
+evaluation:
+  confidence_threshold: 0.70
+  calibration_bins: 10

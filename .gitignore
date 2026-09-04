@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.python_packages/
+.env
+.env.*
+!.env.example
+
+# Generated data and trained artifacts
+data/generated/
+artifacts/
+dist/
+experiments/**/outputs/
+*.joblib
+*.pt
+*.pth
+
+# Notebook and editor state
+.ipynb_checkpoints/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or its generated benchmark, please cite it."
+title: "Cell Biophysics Trajectory Benchmark"
+type: software
+authors:
+  - family-names: "Gómez García"
+    given-names: "Pablo Aurelio"
+    orcid: "https://orcid.org/0000-0002-4971-4229"
+version: 0.1.0
+date-released: 2026-09-04
+repository-code: "https://github.com/PabloAu/Cell-biophysics-ml"
+license: Apache-2.0
+keywords:
+  - single-particle tracking
+  - cell biophysics
+  - measurement uncertainty
+  - anomalous diffusion
