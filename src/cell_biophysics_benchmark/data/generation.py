@@ -6,7 +6,7 @@ import hashlib
 import json
 import math
 import subprocess
-from collections import Counter
+from collections.abc import Iterator
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -142,7 +142,7 @@ def generate_dataset(config: dict[str, Any]) -> dict[str, Any]:
     total = len(states) * sum(int(value) for value in counts.values())
     child_seeds = root_seed.spawn(total)
 
-    samples: list[TrajectorySample] = []
+    sample_specs: list[tuple[str, str, str, int, dict[str, Any]]] = []
     seed_index = 0
     for split, per_state in counts.items():
         regime = "stress" if split == "test_stress" else "matched"
@@ -151,25 +151,32 @@ def generate_dataset(config: dict[str, Any]) -> dict[str, Any]:
             for _ in range(int(per_state)):
                 seed = int(child_seeds[seed_index].generate_state(1, dtype=np.uint64)[0])
                 seed_index += 1
-                samples.append(
-                    _make_sample(
-                        state=state,
-                        split=split,
-                        regime=regime,
-                        seed=seed,
-                        physical_config=config["physical"],
-                        acquisition_config=acquisition_config,
-                    )
-                )
+                sample_specs.append((state, split, regime, seed, acquisition_config))
 
-    # Deterministic shuffle avoids class-block ordering while preserving exact
-    # regeneration from the root seed.
+    # Shuffle compact generation specifications rather than fully materialized
+    # trajectories. This preserves deterministic class-mixed output while
+    # allowing write_samples to stream one sample at a time at benchmark scale.
     order_rng = np.random.default_rng(root_seed.spawn(1)[0])
-    order_rng.shuffle(samples)
+    order_rng.shuffle(sample_specs)
+
+    def samples() -> Iterator[TrajectorySample]:
+        for state, split, regime, seed, acquisition_config in sample_specs:
+            yield _make_sample(
+                state=state,
+                split=split,
+                regime=regime,
+                seed=seed,
+                physical_config=config["physical"],
+                acquisition_config=acquisition_config,
+            )
+
     output = Path(dataset["output"])
-    summary = write_samples(samples, output)
-    split_counts = Counter(sample.split for sample in samples)
-    state_counts = Counter(sample.state_label for sample in samples)
+    summary = write_samples(samples(), output)
+    split_counts = {
+        split: len(states) * int(per_state) for split, per_state in counts.items()
+    }
+    state_total = sum(int(value) for value in counts.values())
+    state_counts = {state: state_total for state in states}
     manifest = {
         **summary,
         "dataset_name": dataset["name"],

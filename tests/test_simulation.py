@@ -33,11 +33,18 @@ def test_brownian_ensemble_recovers_expected_end_point_msd() -> None:
 
 
 def test_confined_process_never_leaves_boundary() -> None:
-    radius = 0.25
+    # Exercise the most difficult scale combination in benchmark_v1: a small
+    # radius with high diffusion and a long frame interval requires many
+    # specular reflections within a single dense integration step.
+    radius = 0.05
     params = PhysicalParams(
         state="confined", diffusion_um2_s=5.0, confinement_radius_um=radius
     )
-    latent = simulate_latent(params, acquisition(), np.random.default_rng(11))
+    latent = simulate_latent(
+        params,
+        acquisition(frame_interval_s=0.2, exposure_time_s=0.1, oversample=8),
+        np.random.default_rng(11),
+    )
     assert np.linalg.norm(latent.dense_xy_um, axis=1).max() <= radius * (1 + 1e-9)
 
 

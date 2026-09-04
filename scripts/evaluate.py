@@ -10,6 +10,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from cell_biophysics_benchmark.data import read_samples  # noqa: E402
 from cell_biophysics_benchmark.evaluation import (  # noqa: E402
+    bootstrap_classification_report,
     classification_report,
     identifiability_table,
 )
@@ -25,6 +26,8 @@ def main() -> None:
     parser.add_argument("--model", required=True)
     parser.add_argument("--output-dir", default="artifacts/classical/evaluation")
     parser.add_argument("--confidence-threshold", type=float, default=0.70)
+    parser.add_argument("--bootstrap-resamples", type=int, default=1000)
+    parser.add_argument("--bootstrap-seed", type=int, default=20260904)
     args = parser.parse_args()
     output = Path(args.output_dir)
     output.mkdir(parents=True, exist_ok=True)
@@ -37,6 +40,14 @@ def main() -> None:
             [sample.state_label for sample in samples],
             probabilities,
             classes,
+            confidence_threshold=args.confidence_threshold,
+        )
+        combined[split]["bootstrap"] = bootstrap_classification_report(
+            [sample.state_label for sample in samples],
+            probabilities,
+            classes,
+            n_resamples=args.bootstrap_resamples,
+            seed=args.bootstrap_seed,
             confidence_threshold=args.confidence_threshold,
         )
         table = identifiability_table(

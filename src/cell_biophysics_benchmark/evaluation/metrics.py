@@ -106,6 +106,88 @@ def classification_report(
     }
 
 
+def bootstrap_classification_report(
+    y_true: Sequence[str],
+    probabilities: np.ndarray,
+    classes: Sequence[str],
+    *,
+    n_resamples: int = 1000,
+    confidence_level: float = 0.95,
+    seed: int = 20260904,
+    confidence_threshold: float = 0.70,
+    calibration_bins: int = 10,
+) -> dict[str, Any]:
+    """Estimate metric uncertainty by resampling complete trajectories.
+
+    Sampling is stratified by true state so every replicate preserves the
+    observed class supports. Each row must represent one independent trajectory;
+    callers must not pass individual time steps.
+    """
+
+    if n_resamples <= 0:
+        raise ValueError("n_resamples must be positive")
+    if not 0.0 < confidence_level < 1.0:
+        raise ValueError("confidence_level must lie in (0, 1)")
+
+    truth = np.asarray(y_true, dtype=object)
+    probabilities_array = np.asarray(probabilities, dtype=float)
+    classes_array = np.asarray(classes, dtype=object)
+    estimate = classification_report(
+        truth,
+        probabilities_array,
+        classes_array,
+        confidence_threshold=confidence_threshold,
+        calibration_bins=calibration_bins,
+    )
+    class_indices = [np.flatnonzero(truth == label) for label in classes_array]
+    if any(len(indices) == 0 for indices in class_indices):
+        raise ValueError("Stratified bootstrap requires at least one sample per class")
+
+    metric_names = (
+        "accuracy",
+        "balanced_accuracy",
+        "macro_f1",
+        "multiclass_brier",
+        "negative_log_likelihood",
+        "expected_calibration_error",
+        "coverage",
+        "selective_accuracy",
+    )
+    bootstrap_values = {name: np.empty(n_resamples, dtype=float) for name in metric_names}
+    rng = np.random.default_rng(seed)
+    for replicate in range(n_resamples):
+        sampled = np.concatenate(
+            [rng.choice(indices, size=len(indices), replace=True) for indices in class_indices]
+        )
+        report = classification_report(
+            truth[sampled],
+            probabilities_array[sampled],
+            classes_array,
+            confidence_threshold=confidence_threshold,
+            calibration_bins=calibration_bins,
+        )
+        for name in metric_names:
+            value = report[name]
+            bootstrap_values[name][replicate] = np.nan if value is None else float(value)
+
+    alpha = 1.0 - confidence_level
+    metrics: dict[str, dict[str, float | None]] = {}
+    for name, values in bootstrap_values.items():
+        valid = values[np.isfinite(values)]
+        metrics[name] = {
+            "estimate": None if estimate[name] is None else float(estimate[name]),
+            "lower": float(np.quantile(valid, alpha / 2.0)) if len(valid) else None,
+            "upper": float(np.quantile(valid, 1.0 - alpha / 2.0)) if len(valid) else None,
+        }
+    return {
+        "method": "stratified_trajectory_percentile_bootstrap",
+        "n_resamples": int(n_resamples),
+        "confidence_level": float(confidence_level),
+        "seed": int(seed),
+        "metrics": metrics,
+    }
+
+
 def identifiability_table(
     samples: Sequence[TrajectorySample],
     probabilities: np.ndarray,

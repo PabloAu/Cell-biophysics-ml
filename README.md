@@ -38,8 +38,18 @@ python scripts/train_baseline.py --data data/generated/smoke.jsonl.gz
 python scripts/run_baseline_ablation.py --data data/generated/smoke.jsonl.gz
 python scripts/evaluate.py --data data/generated/smoke.jsonl.gz \
   --model artifacts/classical/model.joblib
+python scripts/crosscheck_andi.py --config configs/andi_crosscheck.yaml
 python -m pytest
 ```
+
+The independent AnDi check requires the optional external packages
+`andi_datasets==2.1.13` and `stochastic`. It validates latent Brownian and
+fractional-Brownian ensemble statistics only; it does not validate the camera
+model or claim equivalence for the other dynamical states.
+
+Evaluation uses a deterministic, state-stratified trajectory bootstrap by
+default to attach 95% confidence intervals to aggregate, probabilistic,
+calibration, and selective-prediction metrics.
 
 Launch the local interactive explorer:
 
@@ -86,6 +96,18 @@ release permissions, and train/test leakage risks are reviewed. See
 
 The repository is the source of truth; generated data and model weights are
 versioned separately on the Hugging Face Hub.
+
+## Project coordination
+
+Durable project handoff is kept in four root-level records:
+
+- `AGENTS.md` — operating instructions and scientific guardrails for agents;
+- `CONTEXT.md` — current state, limitations, and active milestone;
+- `MEMORY.md` — durable scientific, reproducibility, and governance decisions;
+- `WORKLOG.md` — chronological implementation and validation history.
+
+Update these files as part of material milestones so a new session can continue
+without reconstructing the project from chat history.
 
 After a reportable benchmark run, prepare and validate the publication plan:
 

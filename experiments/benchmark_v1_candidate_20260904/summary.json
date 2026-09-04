@@ -1,0 +1,40 @@
+{
+  "status": "candidate_modified_worktree",
+  "measurement_aware": {
+    "test_matched": {
+      "accuracy": 0.5782666666666667,
+      "accuracy_95_ci": [0.5674633333333333, 0.5885366666666667],
+      "macro_f1": 0.5747806736218499,
+      "macro_f1_95_ci": [0.5637025703939043, 0.5853490396116],
+      "expected_calibration_error": 0.01914585592204919,
+      "coverage_at_0_70": 0.23973333333333333,
+      "selective_accuracy": 0.9193548387096774
+    },
+    "test_stress": {
+      "accuracy": 0.34826666666666667,
+      "accuracy_95_ci": [0.33813, 0.35746666666666665],
+      "macro_f1": 0.3274882963632179,
+      "macro_f1_95_ci": [0.317395151166549, 0.3374963994555706],
+      "expected_calibration_error": 0.30569626464533417,
+      "coverage_at_0_70": 0.4126666666666667,
+      "selective_accuracy": 0.43101777059773827,
+      "selective_accuracy_95_ci": [0.41407811293965796, 0.4472771957433086]
+    }
+  },
+  "trajectory_only": {
+    "test_matched": {
+      "accuracy": 0.5733333333333334,
+      "macro_f1": 0.5693137337318286,
+      "expected_calibration_error": 0.024785421735087465,
+      "coverage_at_0_70": 0.2284,
+      "selective_accuracy": 0.9130180969060129
+    },
+    "test_stress": {
+      "accuracy": 0.34226666666666666,
+      "macro_f1": 0.30684479699376566,
+      "expected_calibration_error": 0.3721418218077335,
+      "coverage_at_0_70": 0.5326666666666666,
+      "selective_accuracy": 0.4052565707133917
+    }
+  }
+}

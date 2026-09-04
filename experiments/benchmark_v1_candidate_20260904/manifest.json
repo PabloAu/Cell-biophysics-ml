@@ -1,0 +1,24 @@
+{
+  "config_sha256": "39e83c66346fbd1fac2c0ce2514f975cd049620bd8f1d62cfbe71c9714f6a7bd",
+  "dataset_name": "cell-biophysics-trajectories-v1",
+  "generated_at_utc": "2026-09-04T11:55:57.178484+00:00",
+  "git_commit": "a690346e892303e452c0d840070cbef555ce3838",
+  "path": "data/generated/cell-biophysics-trajectories-v1.jsonl.gz",
+  "root_seed": 20260904,
+  "samples": 50000,
+  "sha256": "2a3b43f72bc6f1207af0bd749cc6a9a42d772f073a5283d64825d1c8b07c9cb4",
+  "simulator_version": "0.1.1",
+  "split_counts": {
+    "test_matched": 7500,
+    "test_stress": 7500,
+    "train": 30000,
+    "validation": 5000
+  },
+  "state_counts": {
+    "brownian": 10000,
+    "confined": 10000,
+    "directed": 10000,
+    "subdiffusive": 10000,
+    "switching": 10000
+  }
+}

@@ -1,0 +1,17 @@
+seed: 20260904
+trajectories: 1000
+steps: 256
+frame_interval_s: 0.02
+diffusion_um2_s: 0.4
+lags_frames: [1, 2, 4, 8, 16, 32, 64]
+
+models:
+  - name: brownian
+    alpha: 1.0
+  - name: subdiffusive_fbm
+    alpha: 0.7
+
+thresholds:
+  theory_relative: 0.08
+  between_relative: 0.08
+  correlation_absolute: 0.02

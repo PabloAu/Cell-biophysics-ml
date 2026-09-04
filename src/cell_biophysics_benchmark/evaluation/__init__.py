@@ -1,5 +1,13 @@
 """Evaluation metrics and acquisition-regime analysis."""
 
-from .metrics import classification_report, identifiability_table
+from .metrics import (
+    bootstrap_classification_report,
+    classification_report,
+    identifiability_table,
+)
 
-__all__ = ["classification_report", "identifiability_table"]
+__all__ = [
+    "bootstrap_classification_report",
+    "classification_report",
+    "identifiability_table",
+]

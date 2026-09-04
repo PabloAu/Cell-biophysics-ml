@@ -1,0 +1,266 @@
+{
+  "status": "passed",
+  "scope": "Latent, unobserved Brownian and fractional-Brownian trajectories only. Directed drift, circular confinement, switching, and camera acquisition are not claimed to be cross-validated by this run.",
+  "config": {
+    "seed": 20260904,
+    "trajectories": 1000,
+    "steps": 256,
+    "frame_interval_s": 0.02,
+    "diffusion_um2_s": 0.4,
+    "lags_frames": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "models": [
+      {
+        "name": "brownian",
+        "alpha": 1.0
+      },
+      {
+        "name": "subdiffusive_fbm",
+        "alpha": 0.7
+      }
+    ],
+    "thresholds": {
+      "theory_relative": 0.08,
+      "between_relative": 0.08,
+      "correlation_absolute": 0.02
+    }
+  },
+  "provenance": {
+    "simulator_version": "0.1.1",
+    "andi_datasets_version": "2.1.13",
+    "numpy_version": "2.5.2",
+    "python_version": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "git": {
+      "commit": "a690346e892303e452c0d840070cbef555ce3838",
+      "dirty": true
+    }
+  },
+  "results": {
+    "brownian": {
+      "first": {
+        "lags_frames": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "msd_measured_um2": [
+          0.031999709965574635,
+          0.06399174584287572,
+          0.12767047939139994,
+          0.2548342148886935,
+          0.5101142040582327,
+          1.0166608161748285,
+          2.0392011681718194
+        ],
+        "msd_expected_um2": [
+          0.032,
+          0.064,
+          0.128,
+          0.256,
+          0.512,
+          1.024,
+          2.048
+        ],
+        "msd_relative_error": [
+          9.063575792667145e-06,
+          0.0001289712050669533,
+          0.0025743797546879613,
+          0.004553848091040993,
+          0.0036831951987642553,
+          0.007167171704269056,
+          0.004296304603603829
+        ],
+        "max_msd_relative_error": 0.007167171704269056,
+        "increment_correlation_lag1": -0.0001395923381543041,
+        "increment_correlation_expected": 0.0,
+        "increment_correlation_absolute_error": 0.0001395923381543041
+      },
+      "second": {
+        "lags_frames": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "msd_measured_um2": [
+          0.032043711917209866,
+          0.0639153315945534,
+          0.12733383242178625,
+          0.25415312681804075,
+          0.5064923932140768,
+          1.0117781935429708,
+          2.0416740478045075
+        ],
+        "msd_expected_um2": [
+          0.032,
+          0.064,
+          0.128,
+          0.256,
+          0.512,
+          1.024,
+          2.048
+        ],
+        "msd_relative_error": [
+          0.0013659974128082952,
+          0.0013229438351031707,
+          0.0052044342047949214,
+          0.0072143483670283285,
+          0.010757044503756277,
+          0.011935357868192572,
+          0.0030888438454553663
+        ],
+        "max_msd_relative_error": 0.011935357868192572,
+        "increment_correlation_lag1": -0.0024691430630414454,
+        "increment_correlation_expected": 0.0,
+        "increment_correlation_absolute_error": 0.0024691430630414454
+      },
+      "between_simulator_msd_relative_error": [
+        0.0013741286877445552,
+        0.0011948400331435764,
+        0.0026403237437045016,
+        0.0026762475796311006,
+        0.0071252947873321195,
+        0.004814167552946993,
+        0.001211935921493953
+      ],
+      "max_between_simulator_msd_relative_error": 0.0071252947873321195,
+      "thresholds": {
+        "theory_relative_tolerance": 0.08,
+        "between_relative_tolerance": 0.08,
+        "correlation_absolute_tolerance": 0.02
+      },
+      "checks": {
+        "first_matches_theory": true,
+        "second_matches_theory": true,
+        "simulators_agree": true,
+        "first_increment_correlation_matches_theory": true,
+        "second_increment_correlation_matches_theory": true
+      },
+      "passed": true
+    },
+    "subdiffusive_fbm": {
+      "first": {
+        "lags_frames": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "msd_measured_um2": [
+          0.10352439899072065,
+          0.16858366536124805,
+          0.2741672010369627,
+          0.4445558567232825,
+          0.7187912613017585,
+          1.170727685971924,
+          1.9000788838560805
+        ],
+        "msd_expected_um2": [
+          0.10347632105237721,
+          0.16809777948184113,
+          0.273075648412575,
+          0.4436126996192938,
+          0.7206509566396604,
+          1.1707009329339555,
+          1.9018092763841719
+        ],
+        "msd_relative_error": [
+          0.0004646274418579524,
+          0.0028904955253107063,
+          0.003997253620866761,
+          0.0021260822893441667,
+          0.0025805770751675446,
+          2.2852153966820966e-05,
+          0.0009098664884952577
+        ],
+        "max_msd_relative_error": 0.003997253620866761,
+        "increment_correlation_lag1": -0.18579554598562564,
+        "increment_correlation_expected": -0.18774760364376453,
+        "increment_correlation_absolute_error": 0.0019520576581388838
+      },
+      "second": {
+        "lags_frames": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "msd_measured_um2": [
+          0.10367150442893504,
+          0.16823701800169466,
+          0.273464915648419,
+          0.44558311488688795,
+          0.7250210095684724,
+          1.1714159843424474,
+          1.9101459526737605
+        ],
+        "msd_expected_um2": [
+          0.10347632105237721,
+          0.16809777948184113,
+          0.273075648412575,
+          0.4436126996192938,
+          0.7206509566396604,
+          1.1707009329339555,
+          1.9018092763841719
+        ],
+        "msd_relative_error": [
+          0.0018862612680154238,
+          0.0008283186148129721,
+          0.0014254923062781307,
+          0.0044417467518066385,
+          0.006064035423180736,
+          0.0006107891335662482,
+          0.004383550124142226
+        ],
+        "max_msd_relative_error": 0.006064035423180736,
+        "increment_correlation_lag1": -0.1885626354667951,
+        "increment_correlation_expected": -0.18774760364376453,
+        "increment_correlation_absolute_error": 0.000815031823030582
+      },
+      "between_simulator_msd_relative_error": [
+        0.0014199647366235982,
+        0.0020583496006975383,
+        0.0025648071657825506,
+        0.0023080849089153637,
+        0.008629582103439235,
+        0.000587750768022728,
+        0.005284238725843078
+      ],
+      "max_between_simulator_msd_relative_error": 0.008629582103439235,
+      "thresholds": {
+        "theory_relative_tolerance": 0.08,
+        "between_relative_tolerance": 0.08,
+        "correlation_absolute_tolerance": 0.02
+      },
+      "checks": {
+        "first_matches_theory": true,
+        "second_matches_theory": true,
+        "simulators_agree": true,
+        "first_increment_correlation_matches_theory": true,
+        "second_increment_correlation_matches_theory": true
+      },
+      "passed": true
+    }
+  }
+}

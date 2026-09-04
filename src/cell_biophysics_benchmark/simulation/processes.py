@@ -60,10 +60,14 @@ def _reflect_step(start: np.ndarray, delta: np.ndarray, radius: float) -> np.nda
 
     point = start.copy()
     remaining = delta.copy()
-    for _ in range(12):
+    reflections = 0
+    while True:
         candidate = point + remaining
         if float(candidate @ candidate) <= radius * radius * (1.0 + 1e-12):
             return candidate
+        reflections += 1
+        if reflections > 100_000:
+            raise RuntimeError("Reflection solver did not converge")
         a = float(remaining @ remaining)
         b = 2.0 * float(point @ remaining)
         c = float(point @ point) - radius * radius
@@ -90,7 +94,6 @@ def _reflect_step(start: np.ndarray, delta: np.ndarray, radius: float) -> np.nda
         tail = (1.0 - fraction) * remaining
         remaining = tail - 2.0 * float(tail @ normal) * normal
         point = hit - normal * (radius * 1e-12)
-    raise RuntimeError("Too many boundary reflections in one integration step")
 
 
 def _switching_states(
