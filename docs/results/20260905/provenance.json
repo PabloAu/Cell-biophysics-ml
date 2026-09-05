@@ -1,0 +1,82 @@
+{
+  "git_commit": "54d04681a255e5e9a25a710ef41dbd6222bcffdf",
+  "benchmark_source_unchanged_from_commit": true,
+  "dataset_sha256": "882b14b54577a7a6f238bb023cc3ae4deccb99ac5f4d3fe8c2b77dc414861e47",
+  "simulator_version": "0.1.1",
+  "python": "3.12.0 (tags/v3.12.0:0fb18b0, Oct  2 2023, 13:03:39) [MSC v.1935 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "model_configuration": {
+    "kind": "logistic_regression",
+    "measurement_aware": true,
+    "regularization_c": 1.0,
+    "max_iter": 3000,
+    "seed": 20260904
+  },
+  "evaluation_configuration": {
+    "confidence_threshold": 0.7,
+    "calibration_bins": 10
+  },
+  "bootstrap_resamples": 1000,
+  "bootstrap_seed": 20260904,
+  "confidence_level": 0.95,
+  "bootstrap_unit": "whole independent trajectory",
+  "fit_split": "train",
+  "test_tuning": false,
+  "test_splits_evaluated_separately": true,
+  "snapshot_date": "2026-09-05",
+  "scope": "Synthetic benchmark summary export for documentation; not experimental data or a data/model release.",
+  "sources": {
+    "comparison.csv": {
+      "repository_relative_source": "experiments/benchmark_v1_classical_20260905/same-dataset-comparison.csv",
+      "sha256": "cb503250791e2036aba8ee4829c4fab43b6908cc1e92a9097fb1c4b6b2268019",
+      "snapshot_sha256": "414b49e05e243456340f70a17bcf0151488dae07e436dbf209849c4a716e8a42"
+    },
+    "classical-metrics.json": {
+      "repository_relative_source": "experiments/benchmark_v1_classical_20260905/classical-metrics.json",
+      "sha256": "7f7d0985a345fb8367030f606bda2f3b351120fc58b9a07074a71f44a10e8410",
+      "snapshot_sha256": "bcf0fe806d80a4b48783662f4128b35fb918d893d016e0a1999088817ee499c9"
+    },
+    "temporal-metrics.json": {
+      "repository_relative_source": "experiments/benchmark_v1_gpu_20260905/temporal-metrics.json",
+      "sha256": "66dcaae06158d3d9d6e92db1ef9694613b174c6eab227ad3983ae8b79e9da136",
+      "snapshot_sha256": "88061f011a513384eeabd0ed11fb45f8f15004a06b91151691dee9401c9acb4d"
+    },
+    "paired-accuracy-differences.json": {
+      "repository_relative_source": "experiments/benchmark_v1_classical_20260905/paired-accuracy-differences.json",
+      "sha256": "c5b8b220425df875a790bb8088e8df861727662409829ade9a09280a05a376ad",
+      "snapshot_sha256": "2e0346bddd4fc71460d2f0195f870bead338adebd389b71b3e23f10995d2f7a9"
+    },
+    "identifiability_test_matched.csv": {
+      "repository_relative_source": "experiments/benchmark_v1_classical_20260905/measurement_aware_identifiability_test_matched.csv",
+      "sha256": "79ad721d7b04798cc68ea639cc6c391d5a8e5bf92dbac1d61f9165693f3ddd09",
+      "snapshot_sha256": "06b7fbbfefbe200e61e97c0b3676396fd9c1c281d06c6bc2333955814cb8132f"
+    },
+    "coverage-risk_test_matched.json": {
+      "repository_relative_source": "experiments/benchmark_v1_classical_20260905/measurement_aware_coverage-risk_test_matched.json",
+      "sha256": "ac14a711142393cb922d4f1500f21d1cca11d711016ede8e17556a1bb2b47864",
+      "snapshot_sha256": "ec76a2ccee758ce5da079c145d39a83098b956284c7b2786689a5f52f0713976"
+    },
+    "identifiability_test_stress.csv": {
+      "repository_relative_source": "experiments/benchmark_v1_classical_20260905/measurement_aware_identifiability_test_stress.csv",
+      "sha256": "7218b38d361a6c59c4244727c77c61b8d7546f8f6c3c827676a471d9f2309495",
+      "snapshot_sha256": "dd5ac60258fa4b102b98caf217d237c0ec8ad0de5ef63811b2dd6b69f793a68c"
+    },
+    "coverage-risk_test_stress.json": {
+      "repository_relative_source": "experiments/benchmark_v1_classical_20260905/measurement_aware_coverage-risk_test_stress.json",
+      "sha256": "b962ff3ae31e77802e5f74141869f8c41c69e0448a25c9bb47982a11513f46b7",
+      "snapshot_sha256": "08bd0223e8a8438bbd60d1071742fd468a0214a3a114cc79e9f704a23b230eb4"
+    }
+  },
+  "model_sha256": {
+    "trajectory_only": "9a62b6561fd3a05c40e12f46f4533cb8eeda0083d11ffbe4cf195466ead03244",
+    "measurement_aware": "89ef1d696920c1fd9cddcfa2c59054e4d7069c105098ef071e4be7e60b8d5ce4",
+    "temporal_measurement_aware": "7ed8f86d45011285d89f4a300ade98022d9420c6ba99dc356a609366f03251d2"
+  },
+  "limitations": [
+    "Intervals condition on fitted models and simulator; no training-seed uncertainty.",
+    "Strict deterministic CUDA algorithms were not enabled.",
+    "Old candidate and regenerated dataset file hashes differ; use only same-dataset comparisons.",
+    "Full private/local run trees are not bundled in this documentation commit."
+  ],
+  "snapshot_encoding": "UTF-8; LF line endings. Source hashes preserve original source bytes."
+}

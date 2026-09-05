@@ -1,0 +1,44 @@
+{
+  "method": "state-stratified paired whole-trajectory percentile bootstrap",
+  "n_resamples": 1000,
+  "seed": 20260904,
+  "confidence_level": 0.95,
+  "sample_ids_and_truth_match_temporal": true,
+  "splits": {
+    "test_matched": {
+      "measurement_aware_minus_trajectory_only": {
+        "estimate": 0.005733333333333333,
+        "lower": -0.00013333333333333334,
+        "upper": 0.012133333333333333
+      },
+      "measurement_aware_minus_temporal_measurement_aware": {
+        "estimate": 0.025466666666666665,
+        "lower": 0.013066666666666667,
+        "upper": 0.03746666666666667
+      },
+      "trajectory_only_minus_temporal_measurement_aware": {
+        "estimate": 0.019733333333333332,
+        "lower": 0.007196666666666666,
+        "upper": 0.03186666666666667
+      }
+    },
+    "test_stress": {
+      "measurement_aware_minus_trajectory_only": {
+        "estimate": 0.004,
+        "lower": -0.004933333333333333,
+        "upper": 0.012
+      },
+      "measurement_aware_minus_temporal_measurement_aware": {
+        "estimate": 0.04533333333333334,
+        "lower": 0.03226333333333333,
+        "upper": 0.057603333333333326
+      },
+      "trajectory_only_minus_temporal_measurement_aware": {
+        "estimate": 0.04133333333333333,
+        "lower": 0.029060000000000002,
+        "upper": 0.054273333333333326
+      }
+    }
+  },
+  "scope": "Test-sampling uncertainty conditional on these fitted models; pointwise intervals."
+}

@@ -87,3 +87,39 @@ link to detailed experiment records where appropriate.
   `experiments/benchmark_v1_candidate_20260904/andi_crosscheck.json`.
 - Scope remains limited: the cross-check does not validate directed drift,
   circular confinement, switching dynamics, or camera acquisition.
+
+## 2026-09-05 - illustrated README and public architecture guide
+
+- Replaced the introductory README with the current synthetic/experimental scope,
+  model overview, same-dataset results, executable quick start and repository map.
+  Added docs/GUIDE.md with physical/measurement assumptions, classical and temporal
+  architecture, CLI boundaries, uncertainty interpretation and proposed Cell-iSCAT
+  optical/transport/volume workflow. Experimental models remain explicitly planned.
+- Added five reproducible figures as PNG/SVG: research workflow, synthetic motion
+  families, controlled observation effects, accuracy/coverage-risk and all 40
+  nonempty stress identifiability bins (7,500 tracks), including intervals/counts.
+  The temporal configuration was verified to contain 26,373 trainable parameters.
+- Added a Python renderer, seed/environment/input-hash manifest, and compact
+  synthetic summaries under docs/results/20260905. Original source and normalized
+  snapshot hashes are preserved; .gitattributes pins relevant text to LF.
+  Generator, models, feature extraction and evaluation behavior were unchanged.
+- Reviewed release scope in docs/DOCUMENTATION_RELEASE.md. No experimental pixels,
+  trajectories, labels, private inventories, weights or generated datasets are
+  included. User explicitly requested the GitHub documentation commit/push;
+  Hugging Face/data/model publication remains outside this authorization.
+- Preserved pre-existing uncommitted experimental/planning work. Staged only the
+  documentation release and this entry/public context note, rather than all local
+  changes. Summary source bytes agree after documented newline normalization.
+- Validation: python -m pytest -> 29 passed in the active local tree;
+  python -m ruff check . -> passed; python -m pip check -> passed.
+  An isolated export of the staged release passed its 18 benchmark tests and Ruff;
+  all five regenerated PNG hashes exactly matched the reviewed assets.
+  Verified 75 staged Markdown links/anchors, staged renderer/input hashes,
+  synthetic summary hashes, model parameter count and stress-bin coverage.
+  Visually inspected all five figures. git diff --cached --check passed after
+  removing Matplotlib's generated SVG trailing whitespace. Release-text scan found
+  no credential patterns or machine-local source paths.
+- The snapshot reproduces figures from saved estimates; full run-specific temporal
+  evaluation and within-bin/paired-bootstrap audits remain in local run records.
+  Their absence from the generic CLI is documented rather than implying a full
+  evaluation replay. Synthetic performance remains no evidence of biological validity.

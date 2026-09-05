@@ -1,0 +1,209 @@
+{
+  "description": "Synthetic illustrations and frozen synthetic benchmark summaries only",
+  "simulator_version": "0.1.1",
+  "python": "3.12.0",
+  "numpy": "2.5.2",
+  "matplotlib": "3.11.1",
+  "pandas": "2.3.3",
+  "examples": [
+    {
+      "name": "brownian",
+      "physical": {
+        "state": "brownian",
+        "diffusion_um2_s": 0.12,
+        "velocity_um_s": 0,
+        "direction_rad": 0.5,
+        "confinement_radius_um": null,
+        "anomalous_alpha": 1,
+        "switch_probability_per_frame": 0,
+        "second_state_diffusion_um2_s": null
+      },
+      "acquisition": {
+        "n_frames": 180,
+        "frame_interval_s": 0.03,
+        "exposure_time_s": 0.015,
+        "localization_sigma_um": 0.025,
+        "missing_probability": 0.08,
+        "oversample": 8
+      },
+      "latent_seed": 71,
+      "observation_seed": 171
+    },
+    {
+      "name": "directed",
+      "physical": {
+        "state": "directed",
+        "diffusion_um2_s": 0.12,
+        "velocity_um_s": 1.2,
+        "direction_rad": 0.5,
+        "confinement_radius_um": null,
+        "anomalous_alpha": 1,
+        "switch_probability_per_frame": 0,
+        "second_state_diffusion_um2_s": null
+      },
+      "acquisition": {
+        "n_frames": 180,
+        "frame_interval_s": 0.03,
+        "exposure_time_s": 0.015,
+        "localization_sigma_um": 0.025,
+        "missing_probability": 0.08,
+        "oversample": 8
+      },
+      "latent_seed": 72,
+      "observation_seed": 172
+    },
+    {
+      "name": "confined",
+      "physical": {
+        "state": "confined",
+        "diffusion_um2_s": 0.12,
+        "velocity_um_s": 0,
+        "direction_rad": 0.5,
+        "confinement_radius_um": 0.3,
+        "anomalous_alpha": 1,
+        "switch_probability_per_frame": 0,
+        "second_state_diffusion_um2_s": null
+      },
+      "acquisition": {
+        "n_frames": 180,
+        "frame_interval_s": 0.03,
+        "exposure_time_s": 0.015,
+        "localization_sigma_um": 0.025,
+        "missing_probability": 0.08,
+        "oversample": 8
+      },
+      "latent_seed": 73,
+      "observation_seed": 173
+    },
+    {
+      "name": "subdiffusive",
+      "physical": {
+        "state": "subdiffusive",
+        "diffusion_um2_s": 0.12,
+        "velocity_um_s": 0,
+        "direction_rad": 0.5,
+        "confinement_radius_um": null,
+        "anomalous_alpha": 0.55,
+        "switch_probability_per_frame": 0,
+        "second_state_diffusion_um2_s": null
+      },
+      "acquisition": {
+        "n_frames": 180,
+        "frame_interval_s": 0.03,
+        "exposure_time_s": 0.015,
+        "localization_sigma_um": 0.025,
+        "missing_probability": 0.08,
+        "oversample": 8
+      },
+      "latent_seed": 74,
+      "observation_seed": 174
+    },
+    {
+      "name": "switching",
+      "physical": {
+        "state": "switching",
+        "diffusion_um2_s": 0.12,
+        "velocity_um_s": 1.2,
+        "direction_rad": 0.5,
+        "confinement_radius_um": null,
+        "anomalous_alpha": 1,
+        "switch_probability_per_frame": 0.025,
+        "second_state_diffusion_um2_s": 0.04
+      },
+      "acquisition": {
+        "n_frames": 180,
+        "frame_interval_s": 0.03,
+        "exposure_time_s": 0.015,
+        "localization_sigma_um": 0.025,
+        "missing_probability": 0.08,
+        "oversample": 8
+      },
+      "latent_seed": 75,
+      "observation_seed": 175
+    },
+    {
+      "name": "observation_0",
+      "physical": {
+        "state": "brownian",
+        "diffusion_um2_s": 0.04,
+        "velocity_um_s": 0.0,
+        "direction_rad": 0.0,
+        "confinement_radius_um": null,
+        "anomalous_alpha": 1.0,
+        "switch_probability_per_frame": 0.0,
+        "second_state_diffusion_um2_s": null
+      },
+      "acquisition": {
+        "n_frames": 120,
+        "frame_interval_s": 0.03,
+        "exposure_time_s": 0,
+        "localization_sigma_um": 0.003,
+        "missing_probability": 0,
+        "oversample": 8
+      },
+      "latent_seed": 601,
+      "observation_seed": 602,
+      "observed_count": 120
+    },
+    {
+      "name": "observation_1",
+      "physical": {
+        "state": "brownian",
+        "diffusion_um2_s": 0.04,
+        "velocity_um_s": 0.0,
+        "direction_rad": 0.0,
+        "confinement_radius_um": null,
+        "anomalous_alpha": 1.0,
+        "switch_probability_per_frame": 0.0,
+        "second_state_diffusion_um2_s": null
+      },
+      "acquisition": {
+        "n_frames": 120,
+        "frame_interval_s": 0.03,
+        "exposure_time_s": 0.03,
+        "localization_sigma_um": 0.003,
+        "missing_probability": 0,
+        "oversample": 8
+      },
+      "latent_seed": 601,
+      "observation_seed": 602,
+      "observed_count": 120
+    },
+    {
+      "name": "observation_2",
+      "physical": {
+        "state": "brownian",
+        "diffusion_um2_s": 0.04,
+        "velocity_um_s": 0.0,
+        "direction_rad": 0.0,
+        "confinement_radius_um": null,
+        "anomalous_alpha": 1.0,
+        "switch_probability_per_frame": 0.0,
+        "second_state_diffusion_um2_s": null
+      },
+      "acquisition": {
+        "n_frames": 120,
+        "frame_interval_s": 0.03,
+        "exposure_time_s": 0.03,
+        "localization_sigma_um": 0.12,
+        "missing_probability": 0.35,
+        "oversample": 8
+      },
+      "latent_seed": 601,
+      "observation_seed": 602,
+      "observed_count": 81
+    }
+  ],
+  "inputs_sha256": {
+    "classical-metrics.json": "bcf0fe806d80a4b48783662f4128b35fb918d893d016e0a1999088817ee499c9",
+    "comparison.csv": "414b49e05e243456340f70a17bcf0151488dae07e436dbf209849c4a716e8a42",
+    "coverage-risk_test_matched.json": "ec76a2ccee758ce5da079c145d39a83098b956284c7b2786689a5f52f0713976",
+    "coverage-risk_test_stress.json": "08bd0223e8a8438bbd60d1071742fd468a0214a3a114cc79e9f704a23b230eb4",
+    "identifiability_test_matched.csv": "06b7fbbfefbe200e61e97c0b3676396fd9c1c281d06c6bc2333955814cb8132f",
+    "identifiability_test_stress.csv": "dd5ac60258fa4b102b98caf217d237c0ec8ad0de5ef63811b2dd6b69f793a68c",
+    "paired-accuracy-differences.json": "2e0346bddd4fc71460d2f0195f870bead338adebd389b71b3e23f10995d2f7a9",
+    "provenance.json": "81b727f39fde9b2b6ae184202d0838fb8f8b45dbacdd3e64b6ab1a5089681d1c",
+    "temporal-metrics.json": "88061f011a513384eeabd0ed11fb45f8f15004a06b91151691dee9401c9acb4d"
+  },
+  "script_sha256": "d8b6599d7f35f26727795f71000538232fcc367da226e8e06830a8fb254d9c19"
+}

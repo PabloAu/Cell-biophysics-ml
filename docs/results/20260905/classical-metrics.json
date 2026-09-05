@@ -1,0 +1,726 @@
+{
+  "trajectory_only": {
+    "validation": {
+      "n_samples": 5000,
+      "accuracy": 0.5626,
+      "balanced_accuracy": 0.5626,
+      "macro_f1": 0.5586230303392442,
+      "multiclass_brier": 0.542762037362154,
+      "negative_log_likelihood": 1.017075375763156,
+      "expected_calibration_error": 0.02006179431378075,
+      "confidence_threshold": 0.7,
+      "coverage": 0.229,
+      "selective_accuracy": 0.9048034934497816,
+      "per_class": {
+        "brownian": {
+          "precision": 0.4088145896656535,
+          "recall": 0.538,
+          "f1": 0.46459412780656306,
+          "support": 1000
+        },
+        "confined": {
+          "precision": 0.6638935108153078,
+          "recall": 0.798,
+          "f1": 0.7247956403269755,
+          "support": 1000
+        },
+        "directed": {
+          "precision": 0.5719844357976653,
+          "recall": 0.441,
+          "f1": 0.4980237154150197,
+          "support": 1000
+        },
+        "subdiffusive": {
+          "precision": 0.6431492842535788,
+          "recall": 0.629,
+          "f1": 0.6359959555106169,
+          "support": 1000
+        },
+        "switching": {
+          "precision": 0.5552523874488404,
+          "recall": 0.407,
+          "f1": 0.4697057126370456,
+          "support": 1000
+        }
+      },
+      "classes": [
+        "brownian",
+        "confined",
+        "directed",
+        "subdiffusive",
+        "switching"
+      ],
+      "confusion_matrix": [
+        [
+          538,
+          89,
+          97,
+          135,
+          141
+        ],
+        [
+          102,
+          798,
+          1,
+          85,
+          14
+        ],
+        [
+          306,
+          32,
+          441,
+          63,
+          158
+        ],
+        [
+          120,
+          227,
+          11,
+          629,
+          13
+        ],
+        [
+          250,
+          56,
+          221,
+          66,
+          407
+        ]
+      ]
+    },
+    "test_matched": {
+      "n_samples": 7500,
+      "accuracy": 0.5732,
+      "balanced_accuracy": 0.5731999999999999,
+      "macro_f1": 0.5691832084610731,
+      "multiclass_brier": 0.5352673560356477,
+      "negative_log_likelihood": 1.00573291998866,
+      "expected_calibration_error": 0.02417398316471609,
+      "confidence_threshold": 0.7,
+      "coverage": 0.22853333333333334,
+      "selective_accuracy": 0.9130688448074679,
+      "per_class": {
+        "brownian": {
+          "precision": 0.42742316784869977,
+          "recall": 0.6026666666666667,
+          "f1": 0.5001383125864454,
+          "support": 1500
+        },
+        "confined": {
+          "precision": 0.673398730525101,
+          "recall": 0.778,
+          "f1": 0.7219300958861739,
+          "support": 1500
+        },
+        "directed": {
+          "precision": 0.5877034358047016,
+          "recall": 0.43333333333333335,
+          "f1": 0.498848810437452,
+          "support": 1500
+        },
+        "subdiffusive": {
+          "precision": 0.658751696065129,
+          "recall": 0.6473333333333333,
+          "f1": 0.6529926025554809,
+          "support": 1500
+        },
+        "switching": {
+          "precision": 0.566231343283582,
+          "recall": 0.4046666666666667,
+          "f1": 0.4720062208398134,
+          "support": 1500
+        }
+      },
+      "classes": [
+        "brownian",
+        "confined",
+        "directed",
+        "subdiffusive",
+        "switching"
+      ],
+      "confusion_matrix": [
+        [
+          904,
+          126,
+          124,
+          166,
+          180
+        ],
+        [
+          170,
+          1167,
+          2,
+          138,
+          23
+        ],
+        [
+          451,
+          54,
+          650,
+          101,
+          244
+        ],
+        [
+          181,
+          320,
+          10,
+          971,
+          18
+        ],
+        [
+          409,
+          66,
+          320,
+          98,
+          607
+        ]
+      ],
+      "bootstrap": {
+        "method": "stratified_trajectory_percentile_bootstrap",
+        "n_resamples": 1000,
+        "confidence_level": 0.95,
+        "seed": 20260904,
+        "metrics": {
+          "accuracy": {
+            "estimate": 0.5732,
+            "lower": 0.5626599999999999,
+            "upper": 0.5840033333333333
+          },
+          "balanced_accuracy": {
+            "estimate": 0.5731999999999999,
+            "lower": 0.5626599999999999,
+            "upper": 0.5840033333333334
+          },
+          "macro_f1": {
+            "estimate": 0.5691832084610731,
+            "lower": 0.5579243335487465,
+            "upper": 0.5802947918309428
+          },
+          "multiclass_brier": {
+            "estimate": 0.5352673560356477,
+            "lower": 0.5272047919827062,
+            "upper": 0.5433133900390458
+          },
+          "negative_log_likelihood": {
+            "estimate": 1.00573291998866,
+            "lower": 0.989441031589904,
+            "upper": 1.0230353841237858
+          },
+          "expected_calibration_error": {
+            "estimate": 0.02417398316471609,
+            "lower": 0.01783878606860143,
+            "upper": 0.03480579481712153
+          },
+          "coverage": {
+            "estimate": 0.22853333333333334,
+            "lower": 0.22013333333333332,
+            "upper": 0.23760333333333333
+          },
+          "selective_accuracy": {
+            "estimate": 0.9130688448074679,
+            "lower": 0.8992237897761154,
+            "upper": 0.9262302453119472
+          }
+        }
+      }
+    },
+    "test_stress": {
+      "n_samples": 7500,
+      "accuracy": 0.3432,
+      "balanced_accuracy": 0.3432,
+      "macro_f1": 0.3077852964396704,
+      "multiclass_brier": 0.9495536822484238,
+      "negative_log_likelihood": 2.564619618707999,
+      "expected_calibration_error": 0.37144471534277457,
+      "confidence_threshold": 0.7,
+      "coverage": 0.5325333333333333,
+      "selective_accuracy": 0.40635953930896346,
+      "per_class": {
+        "brownian": {
+          "precision": 0.3155339805825243,
+          "recall": 0.08666666666666667,
+          "f1": 0.13598326359832638,
+          "support": 1500
+        },
+        "confined": {
+          "precision": 0.36596491228070177,
+          "recall": 0.6953333333333334,
+          "f1": 0.47954022988505746,
+          "support": 1500
+        },
+        "directed": {
+          "precision": 0.35767256132344555,
+          "recall": 0.418,
+          "f1": 0.38549031663080235,
+          "support": 1500
+        },
+        "subdiffusive": {
+          "precision": 0.3095905776780707,
+          "recall": 0.368,
+          "f1": 0.33627779469996955,
+          "support": 1500
+        },
+        "switching": {
+          "precision": 0.3162393162393162,
+          "recall": 0.148,
+          "f1": 0.20163487738419614,
+          "support": 1500
+        }
+      },
+      "classes": [
+        "brownian",
+        "confined",
+        "directed",
+        "subdiffusive",
+        "switching"
+      ],
+      "confusion_matrix": [
+        [
+          130,
+          477,
+          381,
+          337,
+          175
+        ],
+        [
+          34,
+          1043,
+          40,
+          345,
+          38
+        ],
+        [
+          81,
+          340,
+          627,
+          274,
+          178
+        ],
+        [
+          80,
+          586,
+          193,
+          552,
+          89
+        ],
+        [
+          87,
+          404,
+          512,
+          275,
+          222
+        ]
+      ],
+      "bootstrap": {
+        "method": "stratified_trajectory_percentile_bootstrap",
+        "n_resamples": 1000,
+        "confidence_level": 0.95,
+        "seed": 20260904,
+        "metrics": {
+          "accuracy": {
+            "estimate": 0.3432,
+            "lower": 0.33372999999999997,
+            "upper": 0.35267333333333334
+          },
+          "balanced_accuracy": {
+            "estimate": 0.3432,
+            "lower": 0.33372999999999997,
+            "upper": 0.35267333333333334
+          },
+          "macro_f1": {
+            "estimate": 0.3077852964396704,
+            "lower": 0.2974453851715246,
+            "upper": 0.3177649078822172
+          },
+          "multiclass_brier": {
+            "estimate": 0.9495536822484238,
+            "lower": 0.9364985365682592,
+            "upper": 0.9622670087186677
+          },
+          "negative_log_likelihood": {
+            "estimate": 2.564619618707999,
+            "lower": 2.500653310564821,
+            "upper": 2.635416849609523
+          },
+          "expected_calibration_error": {
+            "estimate": 0.37144471534277457,
+            "lower": 0.3615734519347633,
+            "upper": 0.38191081721434494
+          },
+          "coverage": {
+            "estimate": 0.5325333333333333,
+            "lower": 0.5214666666666666,
+            "upper": 0.5425333333333333
+          },
+          "selective_accuracy": {
+            "estimate": 0.40635953930896346,
+            "lower": 0.39282860071909076,
+            "upper": 0.4194041312661828
+          }
+        }
+      }
+    }
+  },
+  "measurement_aware": {
+    "validation": {
+      "n_samples": 5000,
+      "accuracy": 0.577,
+      "balanced_accuracy": 0.577,
+      "macro_f1": 0.5727266872250285,
+      "multiclass_brier": 0.5327879680104037,
+      "negative_log_likelihood": 0.9950438619424234,
+      "expected_calibration_error": 0.027618013346668704,
+      "confidence_threshold": 0.7,
+      "coverage": 0.239,
+      "selective_accuracy": 0.9129707112970711,
+      "per_class": {
+        "brownian": {
+          "precision": 0.42201834862385323,
+          "recall": 0.552,
+          "f1": 0.4783362218370884,
+          "support": 1000
+        },
+        "confined": {
+          "precision": 0.6739864864864865,
+          "recall": 0.798,
+          "f1": 0.7307692307692308,
+          "support": 1000
+        },
+        "directed": {
+          "precision": 0.570694087403599,
+          "recall": 0.444,
+          "f1": 0.499437570303712,
+          "support": 1000
+        },
+        "subdiffusive": {
+          "precision": 0.6739562624254473,
+          "recall": 0.678,
+          "f1": 0.6759720837487537,
+          "support": 1000
+        },
+        "switching": {
+          "precision": 0.5704419889502762,
+          "recall": 0.413,
+          "f1": 0.4791183294663573,
+          "support": 1000
+        }
+      },
+      "classes": [
+        "brownian",
+        "confined",
+        "directed",
+        "subdiffusive",
+        "switching"
+      ],
+      "confusion_matrix": [
+        [
+          552,
+          94,
+          104,
+          112,
+          138
+        ],
+        [
+          104,
+          798,
+          2,
+          87,
+          9
+        ],
+        [
+          314,
+          31,
+          444,
+          58,
+          153
+        ],
+        [
+          94,
+          206,
+          11,
+          678,
+          11
+        ],
+        [
+          244,
+          55,
+          217,
+          71,
+          413
+        ]
+      ]
+    },
+    "test_matched": {
+      "n_samples": 7500,
+      "accuracy": 0.5789333333333333,
+      "balanced_accuracy": 0.5789333333333334,
+      "macro_f1": 0.5755779358718386,
+      "multiclass_brier": 0.5277134535916107,
+      "negative_log_likelihood": 0.9867635844219589,
+      "expected_calibration_error": 0.020099045158427822,
+      "confidence_threshold": 0.7,
+      "coverage": 0.23933333333333334,
+      "selective_accuracy": 0.9192200557103064,
+      "per_class": {
+        "brownian": {
+          "precision": 0.43106704438149196,
+          "recall": 0.6086666666666667,
+          "f1": 0.5046987285793256,
+          "support": 1500
+        },
+        "confined": {
+          "precision": 0.6764018691588785,
+          "recall": 0.772,
+          "f1": 0.7210460772104608,
+          "support": 1500
+        },
+        "directed": {
+          "precision": 0.5919790758500436,
+          "recall": 0.45266666666666666,
+          "f1": 0.5130336229693993,
+          "support": 1500
+        },
+        "subdiffusive": {
+          "precision": 0.6696185286103542,
+          "recall": 0.6553333333333333,
+          "f1": 0.6623989218328841,
+          "support": 1500
+        },
+        "switching": {
+          "precision": 0.5772511848341232,
+          "recall": 0.406,
+          "f1": 0.4767123287671233,
+          "support": 1500
+        }
+      },
+      "classes": [
+        "brownian",
+        "confined",
+        "directed",
+        "subdiffusive",
+        "switching"
+      ],
+      "confusion_matrix": [
+        [
+          913,
+          128,
+          126,
+          156,
+          177
+        ],
+        [
+          176,
+          1158,
+          6,
+          146,
+          14
+        ],
+        [
+          448,
+          53,
+          679,
+          85,
+          235
+        ],
+        [
+          176,
+          309,
+          12,
+          983,
+          20
+        ],
+        [
+          405,
+          64,
+          324,
+          98,
+          609
+        ]
+      ],
+      "bootstrap": {
+        "method": "stratified_trajectory_percentile_bootstrap",
+        "n_resamples": 1000,
+        "confidence_level": 0.95,
+        "seed": 20260904,
+        "metrics": {
+          "accuracy": {
+            "estimate": 0.5789333333333333,
+            "lower": 0.568,
+            "upper": 0.5894733333333334
+          },
+          "balanced_accuracy": {
+            "estimate": 0.5789333333333334,
+            "lower": 0.568,
+            "upper": 0.5894733333333334
+          },
+          "macro_f1": {
+            "estimate": 0.5755779358718386,
+            "lower": 0.5641848560727932,
+            "upper": 0.5863072255749686
+          },
+          "multiclass_brier": {
+            "estimate": 0.5277134535916107,
+            "lower": 0.5197593907423018,
+            "upper": 0.5360170506741376
+          },
+          "negative_log_likelihood": {
+            "estimate": 0.9867635844219589,
+            "lower": 0.9701724526363789,
+            "upper": 1.005354159792341
+          },
+          "expected_calibration_error": {
+            "estimate": 0.020099045158427822,
+            "lower": 0.01580481091069451,
+            "upper": 0.03143541743800293
+          },
+          "coverage": {
+            "estimate": 0.23933333333333334,
+            "lower": 0.23106666666666667,
+            "upper": 0.2488
+          },
+          "selective_accuracy": {
+            "estimate": 0.9192200557103064,
+            "lower": 0.906055150989548,
+            "upper": 0.9318485910058952
+          }
+        }
+      }
+    },
+    "test_stress": {
+      "n_samples": 7500,
+      "accuracy": 0.3472,
+      "balanced_accuracy": 0.34720000000000006,
+      "macro_f1": 0.3263164368735022,
+      "multiclass_brier": 0.9007187290697576,
+      "negative_log_likelihood": 2.5392853512420803,
+      "expected_calibration_error": 0.30687962612093417,
+      "confidence_threshold": 0.7,
+      "coverage": 0.41386666666666666,
+      "selective_accuracy": 0.4326675257731959,
+      "per_class": {
+        "brownian": {
+          "precision": 0.26247987117552335,
+          "recall": 0.21733333333333332,
+          "f1": 0.23778264040846095,
+          "support": 1500
+        },
+        "confined": {
+          "precision": 0.4113847396043601,
+          "recall": 0.6793333333333333,
+          "f1": 0.5124465677646467,
+          "support": 1500
+        },
+        "directed": {
+          "precision": 0.3573232323232323,
+          "recall": 0.37733333333333335,
+          "f1": 0.3670557717250324,
+          "support": 1500
+        },
+        "subdiffusive": {
+          "precision": 0.40185185185185185,
+          "recall": 0.14466666666666667,
+          "f1": 0.21274509803921568,
+          "support": 1500
+        },
+        "switching": {
+          "precision": 0.2872661436330718,
+          "recall": 0.31733333333333336,
+          "f1": 0.3015521064301552,
+          "support": 1500
+        }
+      },
+      "classes": [
+        "brownian",
+        "confined",
+        "directed",
+        "subdiffusive",
+        "switching"
+      ],
+      "confusion_matrix": [
+        [
+          326,
+          388,
+          330,
+          76,
+          380
+        ],
+        [
+          179,
+          1019,
+          45,
+          119,
+          138
+        ],
+        [
+          205,
+          263,
+          566,
+          53,
+          413
+        ],
+        [
+          340,
+          478,
+          215,
+          217,
+          250
+        ],
+        [
+          192,
+          329,
+          428,
+          75,
+          476
+        ]
+      ],
+      "bootstrap": {
+        "method": "stratified_trajectory_percentile_bootstrap",
+        "n_resamples": 1000,
+        "confidence_level": 0.95,
+        "seed": 20260904,
+        "metrics": {
+          "accuracy": {
+            "estimate": 0.3472,
+            "lower": 0.3369333333333333,
+            "upper": 0.3564
+          },
+          "balanced_accuracy": {
+            "estimate": 0.34720000000000006,
+            "lower": 0.33693333333333336,
+            "upper": 0.3564
+          },
+          "macro_f1": {
+            "estimate": 0.3263164368735022,
+            "lower": 0.31600838256768987,
+            "upper": 0.3359591118314599
+          },
+          "multiclass_brier": {
+            "estimate": 0.9007187290697576,
+            "lower": 0.8886805753374746,
+            "upper": 0.9131450675811612
+          },
+          "negative_log_likelihood": {
+            "estimate": 2.5392853512420803,
+            "lower": 2.4749346543126567,
+            "upper": 2.6095033407863504
+          },
+          "expected_calibration_error": {
+            "estimate": 0.30687962612093417,
+            "lower": 0.29702614520854553,
+            "upper": 0.31734342957482436
+          },
+          "coverage": {
+            "estimate": 0.41386666666666666,
+            "lower": 0.40306333333333333,
+            "upper": 0.4242666666666667
+          },
+          "selective_accuracy": {
+            "estimate": 0.4326675257731959,
+            "lower": 0.41554618325161374,
+            "upper": 0.44829830409012816
+          }
+        }
+      }
+    }
+  }
+}

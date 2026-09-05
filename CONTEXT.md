@@ -1,3 +1,15 @@
+> **Public documentation snapshot — 2026-09-05.** See [README.md](README.md),
+> [the guide](docs/GUIDE.md) and the [same-dataset results](docs/results/20260905/README.md)
+> for the completed 50,000-trajectory classical/GPU comparison and reproducible
+> figures. Classical measurement-aware matched/stress accuracy is 0.5789/0.3472;
+> temporal measurement-aware accuracy is 0.5535/0.3019. Both use the regenerated
+> dataset identified in the result provenance. The Cell-iSCAT direction is optical
+> event annotation/QC followed by independently validated transport/volume work;
+> no experimental model or quantitative volume labels exist yet.
+> This release publishes documentation and synthetic summaries only. Private
+> experimental preparation and unrelated pending work remain local. The earlier
+> foundation snapshot below is historical where it differs from the dated report.
+
 # Current project context
 
 Last updated: 2026-09-04
